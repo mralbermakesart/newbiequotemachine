@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quote Randomizer</title>
+  <style>
+    /* Set the background color and font for the page */
+    body {
+      background-color: #D5D5D5;
+      font-family: "Helvetica Neue", sans-serif;
+    }
+
+    /* Style the quote box */
+    #quote-box {
+      background-color: #FFFFFF;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      margin: 20px auto;
+      max-width: 600px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    /* Style the quote text */
+    #quote-text {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    /* Style the author text */
+    #quote-author {
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    /* Style the button */
+    #new-quote {
+      background-color: #FFC107;
+      border: none;
+      border-radius: 3px;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    /* Change the button color on hover */
+    #new-quote:hover {
+      background-color: #FFA000;
+    }
+  </style>
+</head>
+<body>
+  <div id="quote-box">
+    <p id="quote-text"><!--Add your quotes here--></p>
+    <p id="quote-author"><!--Add the author of your quotes here--></p>
+    <button id="new-quote">New Quote</button>
+  </div>
+
+  <script>
+    // Add your quotes and authors to this array
+    const quotes = [
+      {
+        text: "Quote 1",
+        author: "Author 1"
+      },
+      {
+        text: "Quote 2",
+        author: "Author 2"
+      },
+      {
+        text: "Quote 3",
+        author: "Author 3"
+      }
+      // Add more quotes and authors here
+    ];
+
+    // Get a random quote from the array
+    function getRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      return quotes[randomIndex];
+    }
+
+    // Display the random quote and author
+    function displayQuote() {
+      const quote = getRandomQuote();
+      document.getElementById("quote-text").textContent = quote.text;
+      document.getElementById("quote-author").textContent = "- " + quote.author;
+    }
+
+    // Display a new quote when the button is clicked
+    document.getElementById("new-quote").addEventListener("click", displayQuote);
+
+    // Display a random quote when the page loads
+    displayQuote();
+  </script>
+</body>
+</html>
